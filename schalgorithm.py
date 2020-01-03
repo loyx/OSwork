@@ -1,11 +1,12 @@
 import random
 from collections import deque
 from copy import copy
+from abc import ABC, abstractmethod
 
 from task import Task
 
 
-class Schglorithm:
+class Schglorithm(ABC):
 
     def __init__(self, time, resume_time, waiteQueue, readQueue, finishQueue,
                  initTime, task_num, std_args, ls_rate, io_rate, total_num,
@@ -33,8 +34,9 @@ class Schglorithm:
     def return_parameters(self):
         return self.long_task_num, self.short_task_num
 
+    @ abstractmethod
     def sim(self):
-        return
+        """ 不同调度算法 """
 
     def start_one_task(self):
         if isinstance(self.readQueue, list):
